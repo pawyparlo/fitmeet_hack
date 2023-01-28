@@ -28,6 +28,8 @@ const MobileProfile = ({ userName }: MobileProfileProps) => {
   return (
     <div>
       <Dropdown.Button
+        className="mobile-profile-button"
+        // overlayClassName="mobile-profile-button"
         menu={menuProps}
         placement="bottomRight"
         icon={<UserOutlined />}
