@@ -1,7 +1,7 @@
 import React from "react";
 
 const Onboarding = () => {
-  return <div>Onboarding</div>;
+  return <div>h</div>;
 };
 
 export default Onboarding;

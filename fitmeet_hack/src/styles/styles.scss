@@ -3,3 +3,14 @@
 body {
   background-color: #1a1a1a;
 }
+.hello-page-layout {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 50px;
+}
+
+.hello-page-bottom-space {
+    height: 100vh;
+}
