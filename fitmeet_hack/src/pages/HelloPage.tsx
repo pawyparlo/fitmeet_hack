@@ -1,13 +1,16 @@
 import { Layout, Row, Col, Button } from "antd";
+import { useNavigate } from "react-router";
 import "../styles/styles.scss";
 import "../styles/utils.scss";
 
-const HelloPage = () => {
+const HelloPage: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <Layout className="hello-page-layout" style={{ background: "transparent" }}>
       <Row>
         <Col span={24} className="center-horizontaly padding-bottom-20">
-          Get started
+          Discover new opportunities in the world of sports, find the perfect
+          partner training.
         </Col>
       </Row>
       <Row>

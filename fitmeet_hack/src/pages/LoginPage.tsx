@@ -1,7 +1,8 @@
 import React from "react";
+import { Layout } from "antd";
 
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return <Layout style={{ background: "transparent" }}>LoginPage</Layout>;
 };
 
 export default LoginPage;
