@@ -4,8 +4,13 @@ import MobileProfile from "./dashboard/MobileProfile";
 const DashboardGird = () => {
   return (
     <div>
-      <Row>
-        <MobileProfile />
+      <Row style={{ padding: "1rem 1rem" }}>
+        <Col xs={4} style={{ backgroundColor: "red" }}>
+          Home
+        </Col>
+        <Col xs={20} style={{ display: "flex", justifyContent: "right" }}>
+          <MobileProfile userName="Evgen Ledo" />
+        </Col>
       </Row>
       <Row>
         <Col xs={0} lg={8}>

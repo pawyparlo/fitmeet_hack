@@ -2,23 +2,18 @@
 @import url("utils.scss");
 
 $base-button-color: #fffd01;
+$secondary-color: #282828;
+$background-color: #1a1a1a;
 
 body {
-  background-color: #1a1a1a;
+  background-color: $background-color;
   color: white;
 }
 
-.hello-page-layout {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    text-align: center;
-    padding-bottom: 50px;
-}
+
 
 .hello-page-bottom-space {
-    height: 100vh;
+  height: 100vh;
 }
 
 .hello-page-button { 

@@ -6,7 +6,7 @@ import "../styles/utils.scss";
 const HelloPage: React.FC = () => {
   const navigate = useNavigate();
   return (
-    <Layout className="hello-page-layout" style={{ background: "transparent" }}>
+    <Layout className="page-layout" style={{ background: "transparent" }}>
       <Row>
         <Col span={24} className="center-horizontaly padding-bottom-20">
           Discover new opportunities in the world of sports, find the perfect
@@ -15,7 +15,11 @@ const HelloPage: React.FC = () => {
       </Row>
       <Row>
         <Col span={24} className="center-horizontaly">
-          <Button type="primary" className="hello-page-button">
+          <Button
+            type="primary"
+            className="hello-page-button"
+            onClick={() => navigate("/login")}
+          >
             Get started
           </Button>
         </Col>

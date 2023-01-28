@@ -1,17 +1,38 @@
+import type { MenuProps } from "antd";
 import { Dropdown, Menu } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 
-// const
+const items: MenuProps["items"] = [
+  {
+    label: "1st menu item",
+    key: "1",
+    icon: <UserOutlined />,
+  },
+  {
+    label: "2nd menu item",
+    key: "2",
+    icon: <UserOutlined />,
+  },
+];
 
-const MobileProfile = () => {
+const menuProps: MenuProps = {
+  items,
+  onClick: () => {},
+};
+
+type MobileProfileProps = {
+  userName: string;
+};
+
+const MobileProfile = ({ userName }: MobileProfileProps) => {
   return (
     <div>
       <Dropdown.Button
-        // menu={menuProps}
-        placement="bottom"
+        menu={menuProps}
+        placement="bottomRight"
         icon={<UserOutlined />}
       >
-        Dropdown
+        {userName}
       </Dropdown.Button>
     </div>
   );
