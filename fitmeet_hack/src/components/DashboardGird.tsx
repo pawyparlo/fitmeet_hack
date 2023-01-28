@@ -1,8 +1,12 @@
 import { Row, Col } from "antd";
+import MobileProfile from "./dashboard/MobileProfile";
 
 const DashboardGird = () => {
   return (
     <div>
+      <Row>
+        <MobileProfile />
+      </Row>
       <Row>
         <Col xs={0} lg={8}>
           left

@@ -1,12 +1,7 @@
 import React from "react";
-import DashboardGird from "../components/DashboardGird";
 
 const HelloPage = () => {
-  return (
-    <div>
-      <DashboardGird />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default HelloPage;
