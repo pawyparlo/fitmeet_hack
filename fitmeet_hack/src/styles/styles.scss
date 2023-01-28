@@ -4,22 +4,11 @@
 
 body {
   background-color: #1a1a1a;
-  color: white;
+  color: white !important;
+  
 }
 
-.hello-page-layout {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 50px;
-}
 
-.hello-page-bottom-space {
-  height: 100vh;
-}
-
-.hello-page-button {
-  width: 200px;
-  height: 50px;
+.ant-form-item-required {
+    color: white !important
 }
