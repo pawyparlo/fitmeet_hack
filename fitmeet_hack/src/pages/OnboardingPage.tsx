@@ -4,6 +4,7 @@ import UploadImage from "../components/UploadImage";
 import WelcomeOnboarding from "../components/WelcomeOnboarding";
 import "../styles/styles.scss";
 import OnboardingButtons from "../components/OnboardingButtons";
+import BaseParamsOnboarding from "../components/BaseParamsOnboarding";
 
 const OnboardingPage = () => {
   const [current, setCurrent] = useState<number>(0);
@@ -14,11 +15,11 @@ const OnboardingPage = () => {
     },
     {
       title: "",
-      content: <UploadImage />,
+      content: <BaseParamsOnboarding />,
     },
     {
       title: "",
-      content: "Last-content",
+      content: <UploadImage />,
     },
   ];
 
