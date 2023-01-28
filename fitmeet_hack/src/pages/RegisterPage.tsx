@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router";
 import { UserRegisterCredentialProps } from "../types";
+
 import { Layout, Form, Input, Typography, Button } from "antd";
 
 const RegisterPage = () => {
