@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import HelloPage from "./pages/HelloPage";
+import "./styles/styles.scss";
 import { useNavigate } from "react-router";
 import "./styles/index.css";
 

@@ -26,10 +26,9 @@ type MobileProfileProps = {
 
 const MobileProfile = ({ userName }: MobileProfileProps) => {
   return (
-    <div>
+    <div className="bg-transparent">
       <Dropdown.Button
-        className="mobile-profile-button"
-        // overlayClassName="mobile-profile-button"
+        className="mobile-profile-button button"
         menu={menuProps}
         placement="bottomRight"
         icon={<UserOutlined />}
