@@ -1,4 +1,7 @@
+import math
+from fitmeet.models.activity import Activity
 from fitmeet.models.user import UserBase
+from django.db.models import Q
 import graphene
 
 from graphene_django import DjangoObjectType
@@ -20,9 +23,28 @@ class UserInput(graphene.InputObjectType):
     location = graphene.String()
 
 
+class MatchType(graphene.ObjectType):
+    def __init__(self, points, same_activities, user) -> None:
+        self.points = points
+        self.same_activities = same_activities
+        self.user = user
+
+    points = graphene.Int()
+    same_activities = graphene.List(graphene.String)
+    location = graphene.String()
+    user = graphene.Field(UserType)
+
+
+class Match:
+    points: int
+    same_activities: dict[str, str]
+    location: str
+
+
 class UserQuery(graphene.ObjectType):
     users = graphene.List(UserType)
     user = graphene.Field(UserType, user_id=graphene.ID())
+    get_user_matches = graphene.List(MatchType, user_id=graphene.ID())
 
     @staticmethod
     def resolve_users(_root_, _info, **kwargs):
@@ -31,6 +53,41 @@ class UserQuery(graphene.ObjectType):
     @staticmethod
     def resolve_user(root, info, user_id):
         return UserBase.objects.get(pk=user_id)
+
+    @staticmethod
+    def __sort_and_score_matches(matches, current_user, user_activities):
+        scored_matches = []
+        for match in matches:
+            scored_match = MatchType(0, [], match)
+            scored_match.points = 0
+            if match.location == current_user.location:
+                scored_match.points += 1
+            for activity in match.users_activities:
+                if activity.name in user_activities.keys():
+                    scored_match.points += 1
+                    scored_match.same_activities += ()
+                    if math.isclose(
+                        activity.level,
+                        user_activities[activity.name],
+                        abs_tol=10,
+                    ):
+                        scored_match.points += 1
+            scored_matches.append(scored_match)
+        return sorted(scored_match, key=lambda x: x.points)
+
+    @staticmethod
+    def resolve_get_user_matches(root, info, user_id):
+        current_user = UserBase.objects.get(pk=user_id)
+        user_activities = {}
+        for activity in current_user.users_activities:
+            user_activities[activity.name] = activity.level
+        all_matches = UserBase.objects.filter(
+            Q(location=current_user.location)
+            | Q(user_activities__name__in=user_activities.keys())
+        )
+        return UserQuery.__sort_and_score_matches(
+            all_matches, current_user, user_activities
+        )
 
 
 class CreateUserMutation(graphene.Mutation):
@@ -48,7 +105,7 @@ class CreateUserMutation(graphene.Mutation):
             description=input_user.description,
             password=input_user.password,
             email=input_user.email,
-            nick=input_user.nick,
+            login=input_user.login,
             location=input_user.location,
         )
         return CreateUserMutation(user=user)

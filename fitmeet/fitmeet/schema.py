@@ -1,13 +1,14 @@
 import graphene
 
 from fitmeet.schemas.user import UserMutation, UserQuery
+from fitmeet.schemas.activity import ActivityMutation
 
 
 class Query(UserQuery):
     pass
 
 
-class Mutation(UserMutation):
+class Mutation(UserMutation, ActivityMutation):
     pass
 
 
