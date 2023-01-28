@@ -8,6 +8,8 @@ import MobileProfile from "./components/dashboard/MobileProfile";
 import { Link } from "react-router-dom";
 import FeedMenu from "./components/dashboard/FeedMenu";
 import FeedUserProfile from "./components/dashboard/FeedUserProfile";
+import FeedCategories from "./components/dashboard/FeedCategories";
+import FeedMap from "./components/dashboard/FeedMap";
 
 const App: React.FC = () => {
   const [wasUserLogIn, setWasUserLogIn] = useState<boolean>(true);
@@ -30,12 +32,12 @@ const App: React.FC = () => {
   }
 
   return (
-    <div>
-      <div className="max-w-[1600px] mx-4">
+    <div className="max-w-[1560px] mx-auto">
+      <div className="mx-4">
         <div className="relative min-h-screen">
-          <Row className="py-4 flex items-center">
+          <Row className="sticky bg-backgroundBlack z-50 top-0 py-4 flex items-center">
             <Col xs={4} lg={6}>
-              <div className=" flex justify-center items-center bg-primaryBlack w-[32px] h-[32px] rounded-full">
+              <div className="flex justify-center items-center bg-primaryBlack w-[32px] h-[32px] rounded-full">
                 FT
               </div>
             </Col>
@@ -52,10 +54,12 @@ const App: React.FC = () => {
               <MobileProfile userName="Evgen Ledo" />
             </Col>
           </Row>
-          <Row>
+          <Row gutter={64}>
             <Col xs={0} lg={6}>
-              <div>
+              <div className="sticky top-[64px]">
                 <FeedUserProfile user={{ name: "Evgen Ledo" }} />
+                <FeedCategories />
+                <FeedMap />
               </div>
             </Col>
             <Col xs={24} lg={12}>
