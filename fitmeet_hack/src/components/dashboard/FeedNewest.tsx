@@ -1,7 +1,7 @@
 const FeedNewest = () => {
   return (
     <div>
-      <div className="mx-4">No newest people for now</div>
+      <div className="">No newest people for now</div>
     </div>
   );
 };

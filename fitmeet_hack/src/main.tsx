@@ -3,17 +3,30 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
-import DashboardPage from "./pages/Dashboard";
 import RegisterPage from "./pages/RegisterPage";
 import OnboardingPage from "./pages/OnboardingPage";
 import FeedMatches from "./components/dashboard/FeedMatches";
-import FeedTrainers from "./components/dashboard/FeetTrainers";
+import FeedTrainers from "./components/dashboard/FeedTrainers";
 import FeedNewest from "./components/dashboard/FeedNewest";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    children: [
+      {
+        path: "/matches",
+        element: <FeedMatches />,
+      },
+      {
+        path: "/trainers",
+        element: <FeedTrainers />,
+      },
+      {
+        path: "/newest",
+        element: <FeedNewest />,
+      },
+    ],
   },
   {
     path: "/login",
@@ -26,24 +39,6 @@ const router = createBrowserRouter([
   {
     path: "/onboarding",
     element: <OnboardingPage />,
-  },
-  {
-    path: "/dashboard",
-    element: <DashboardPage />,
-    children: [
-      {
-        path: "/dashboard/matches",
-        element: <FeedMatches />,
-      },
-      {
-        path: "/dashboard/trainers",
-        element: <FeedTrainers />,
-      },
-      {
-        path: "/dashboard/newest",
-        element: <FeedNewest />,
-      },
-    ],
   },
 ]);
 
