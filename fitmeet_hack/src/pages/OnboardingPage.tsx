@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from "react";
 import { Steps, Layout } from "antd";
-import UploadImage from "../components/UploadImage";
 import WelcomeOnboarding from "../components/WelcomeOnboarding";
-import "../styles/styles.scss";
 import OnboardingButtons from "../components/OnboardingButtons";
 import BaseParamsOnboarding from "../components/BaseParamsOnboarding";
+import ActivitiesAndImageOnboarding from "../components/ActivitiesAndImageOnboarding";
+import "../styles/styles.scss";
 
 const OnboardingPage = () => {
   const [current, setCurrent] = useState<number>(0);
@@ -19,7 +19,7 @@ const OnboardingPage = () => {
     },
     {
       title: "",
-      content: <UploadImage />,
+      content: <ActivitiesAndImageOnboarding />,
     },
   ];
 
@@ -34,7 +34,7 @@ const OnboardingPage = () => {
   }, [setCurrent]);
 
   return (
-    <Layout className="h-screen flex justify-top items-center bg-transparent p-[20px] overflow-hidden">
+    <Layout className="h-screen flex justify-top items-center bg-transparent p-[20px]">
       <Steps
         responsive={false}
         direction="horizontal"
