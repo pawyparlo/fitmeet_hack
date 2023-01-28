@@ -5,6 +5,11 @@
 
 body {
   background-color: #1a1a1a;
-  color: white;
+  color: white !important;
+  
 }
 
+
+.ant-form-item-required {
+    color: white !important
+}

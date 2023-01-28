@@ -1,7 +1,17 @@
-import React from "react";
-import { Layout, Form, Input, Checkbox, Button } from "antd";
+import React, { useCallback, useState } from "react";
+import { Layout, Form, Input, Typography, Button } from "antd";
+import "../styles/styles.scss";
 
 const LoginPage = () => {
+  const { Link, Text } = Typography;
+  const [userCredentials, setUserCredentials] = useState<{
+    userName: string;
+    userPassword: string;
+  }>({
+    userName: "",
+    userPassword: "",
+  });
+
   const onFinish = (values: any) => {
     console.log("Success:", values);
   };
@@ -10,8 +20,13 @@ const LoginPage = () => {
     console.log("Failed:", errorInfo);
   };
 
+  const onSubmitClick = useCallback(() => {
+    localStorage.setItem("wasLoggedBefore", "true");
+  }, []);
+
   return (
-    <Layout style={{ background: "transparent" }}>
+    <Layout className="h-screen flex justify-top items-center bg-transparent pt-[200px] overflow-hidden">
+      <h1>Login</h1>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -37,21 +52,20 @@ const LoginPage = () => {
         >
           <Input.Password />
         </Form.Item>
+        <Link className="text-white">Reset password ?</Link>
 
         <Form.Item
           name="remember"
           valuePropName="checked"
-          wrapperCol={{ offset: 8, span: 16 }}
-        >
-          <Checkbox>Remember me</Checkbox>
-        </Form.Item>
-
+          wrapperCol={{ offset: 8, span: 18 }}
+        ></Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
         </Form.Item>
       </Form>
+      <Link href="./register">No acccount? Register</Link>
     </Layout>
   );
 };
