@@ -1,8 +1,11 @@
 @import url("reset.scss");
+@import url("utils.scss");
 
 body {
   background-color: #1a1a1a;
+  color: white;
 }
+
 .hello-page-layout {
     height: 100vh;
     display: flex;
@@ -13,4 +16,10 @@ body {
 
 .hello-page-bottom-space {
     height: 100vh;
+}
+
+.hello-page-button { 
+    width: 200px;
+    height: 50px;
+
 }
