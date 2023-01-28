@@ -1,28 +1,29 @@
 import { DotsVerticalIcon } from "../elements/icons";
+import Tag from "../elements/Tag";
 
-const Tag = ({ content = "", children = null, ...restProps }) => {
-  return (
-    <div
-      className="bg-backgroundBlack text-xs px-3 py-1 rounded-md"
-      {...restProps}
-    >
-      {children ? children : content}
-    </div>
-  );
-};
-
-const Card = ({}) => {
+const Card = ({ name = "", type = "", location = "" }) => {
   return (
     <div className="bg-primaryBlack rounded-md p-4">
       <div className="">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="bg-yellow rounded-full w-[40px] h-[40px] text-primaryBlack">
-              IMG
+            <div className="relative">
+              <div className="bg-yellow rounded-full w-[40px] h-[40px] text-primaryBlack overflow-hidden">
+                <img src="https://www.randomlists.com/img/people/steve_jobs.webp" />
+              </div>
+              <div className="absolute border-yellow border-[0.5px] border-solid text-center leading-[20px] bottom-[-0.5rem] right-[-0.5rem] text-[11px] bg-backgroundBlack w-[22px] h-[22px] rounded-full">
+                49
+              </div>
             </div>
             <div className="ml-4">
-              <div className="text-xs text-gray-500">Sport Enthusiast</div>
-              <div>Mudreh Kumbirai</div>
+              <div className="text-xs text-gray-500">{type}</div>
+              <div>
+                <span>{name}</span>
+                <span className="ml-1 text-xs text-gray-500">
+                  {" "}
+                  - 1 hour ago
+                </span>
+              </div>
             </div>
           </div>
           <div className="self-start text-gray-500">
@@ -42,7 +43,7 @@ const Card = ({}) => {
         <div className="mt-4 pt-4 border-0 border-t-[0.25px] border-dashed border-gray-700">
           <div className="flex items-center justify-between">
             <div className="text-xs flex items-center gap-2">
-              Location: Kraków, Błonie
+              Location: {location}
             </div>
             <div className="bg-yellow text-black text-xs px-3 py-1 rounded-md">
               View Profile
@@ -54,16 +55,4 @@ const Card = ({}) => {
   );
 };
 
-const DashboardFeed = ({}) => {
-  return (
-    <div className="mx-4">
-      <div className="flex flex-col gap-4">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-          <Card key={item} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default DashboardFeed;
+export default Card;

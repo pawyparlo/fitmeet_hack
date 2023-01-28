@@ -4,6 +4,9 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/Dashboard";
+import FeedMatches from "./components/dashboard/FeedMatches";
+import FeedTrainers from "./components/dashboard/FeetTrainers";
+import FeedNewest from "./components/dashboard/FeedNewest";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +20,20 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardPage />,
+    children: [
+      {
+        path: "/dashboard/matches",
+        element: <FeedMatches />,
+      },
+      {
+        path: "/dashboard/trainers",
+        element: <FeedTrainers />,
+      },
+      {
+        path: "/dashboard/newest",
+        element: <FeedNewest />,
+      },
+    ],
   },
 ]);
 
