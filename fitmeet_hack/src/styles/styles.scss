@@ -1,27 +1,10 @@
-@import "variables";
-@import url("reset.scss");
-@import url("utils.scss");
-
-$base-button-color: #fffd01;
-$secondary-color: #282828;
-$background-color: #1a1a1a;
-@import url("dashboard.scss");
+// @import "variables";
+// @import url("reset.scss");
+// @import url("utils.scss");
+// @import url("dashboard.scss");
 
 body {
-  background-color: $background-color;
+  background-color: #1a1a1a;
   color: white;
-}
-
-
-
-.hello-page-bottom-space {
-  height: 100vh;
-}
-
-.hello-page-button { 
-    width: 200px;
-    height: 50px;
-    background-color: $base-button-color;
-    color: black
 }
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import HelloPage from "./pages/HelloPage";
 import { useNavigate } from "react-router";
-import "./styles/styles.scss";
+import "./styles/index.css";
 
 const App: React.FC = () => {
   const [wasUserLogIn, setWasUserLogIn] = useState<boolean>(false);

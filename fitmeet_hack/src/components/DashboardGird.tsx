@@ -3,7 +3,7 @@ import MobileProfile from "./dashboard/MobileProfile";
 
 const DashboardGird = () => {
   return (
-    <div>
+    <div className="bg-yellow-300">
       <Row style={{ padding: "1rem 1rem" }}>
         <Col xs={4} style={{ backgroundColor: "red" }}>
           Home
