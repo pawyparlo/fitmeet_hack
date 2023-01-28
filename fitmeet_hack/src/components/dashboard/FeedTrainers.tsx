@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const FeedMatches = () => {
+const FeedTrainers = () => {
   return (
     <div>
       <div className="flex flex-col gap-4">
@@ -8,7 +8,7 @@ const FeedMatches = () => {
           <Card
             key={item}
             name="Mudreh Kumbirai"
-            type="Sport Enthusiast"
+            type="Trainer"
             location="Krakw, Błonie"
           />
         ))}
@@ -17,4 +17,4 @@ const FeedMatches = () => {
   );
 };
 
-export default FeedMatches;
+export default FeedTrainers;

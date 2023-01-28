@@ -1,7 +1,9 @@
 import React, { useState, useCallback } from "react";
-import { Button, message, Steps, theme, Layout } from "antd";
-import UploadImage from "../components/UploadImage";
-import WelcomeOffboarding from "../components/WelcomeOffboarding";
+import { Steps, Layout } from "antd";
+import WelcomeOnboarding from "../components/WelcomeOnboarding";
+import OnboardingButtons from "../components/OnboardingButtons";
+import BaseParamsOnboarding from "../components/BaseParamsOnboarding";
+import ActivitiesAndImageOnboarding from "../components/ActivitiesAndImageOnboarding";
 import "../styles/styles.scss";
 
 const OnboardingPage = () => {
@@ -9,15 +11,15 @@ const OnboardingPage = () => {
   const steps = [
     {
       title: "",
-      content: <WelcomeOffboarding />,
+      content: <WelcomeOnboarding />,
     },
     {
       title: "",
-      content: <UploadImage />,
+      content: <BaseParamsOnboarding />,
     },
     {
       title: "",
-      content: "Last-content",
+      content: <ActivitiesAndImageOnboarding />,
     },
   ];
 
@@ -32,7 +34,7 @@ const OnboardingPage = () => {
   }, [setCurrent]);
 
   return (
-    <Layout className="h-screen flex justify-top items-center bg-transparent p-[20px] overflow-hidden">
+    <Layout className="h-screen flex justify-top items-center bg-transparent p-[20px]">
       <Steps
         responsive={false}
         direction="horizontal"
@@ -42,26 +44,12 @@ const OnboardingPage = () => {
       <div className="h-screen flex justify-top items-start">
         {steps[current].content}
       </div>
-      <div style={{ marginTop: 24 }}>
-        {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Next
-          </Button>
-        )}
-        {current === steps.length - 1 && (
-          <Button
-            type="primary"
-            onClick={() => message.success("Processing complete!")}
-          >
-            Done
-          </Button>
-        )}
-        {current > 0 && (
-          <Button style={{ margin: "0 8px" }} onClick={() => prev()}>
-            Previous
-          </Button>
-        )}
-      </div>
+      <OnboardingButtons
+        current={current}
+        steps={steps}
+        next={next}
+        prev={prev}
+      />
     </Layout>
   );
 };

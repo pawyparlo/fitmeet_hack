@@ -42,7 +42,7 @@ const UploadImage = () => {
     </div>
   );
   return (
-    <Layout className="w-screen bg-transparent p-[20px]">
+    <Layout className="w-screen bg-transparent">
       <div className="flex justify-center items-center border-1 border-gray-500 rounded border-solid p-[5px] mb-5">
         <h1 className="text-yellow">Profile photo</h1>
       </div>

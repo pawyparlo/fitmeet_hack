@@ -33,6 +33,7 @@ const LoginPage = () => {
   const onLogin = useCallback(() => {
     Object.values(userCredentials).every((val: string) => val !== "") &&
       localStorage.setItem("wasLoggedBefore", "true");
+    navigate("/matches");
   }, []);
 
   return (

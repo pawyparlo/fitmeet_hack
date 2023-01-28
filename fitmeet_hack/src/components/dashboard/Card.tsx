@@ -1,4 +1,4 @@
-import { DotsVerticalIcon } from "../elements/icons";
+import { DotsVerticalIcon } from "../elements/Icons";
 import Tag from "../elements/Tag";
 
 const Card = ({ name = "", type = "", location = "" }) => {
