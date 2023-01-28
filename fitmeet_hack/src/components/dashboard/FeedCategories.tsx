@@ -50,6 +50,7 @@ const FeedCategories = () => {
           )
           .map((category) => (
             <Link
+              key={category.name}
               to={"/matches"}
               className="px-2 py-1 text-gray-400 bg-primaryBlack rounded-md"
             >
