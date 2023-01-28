@@ -1,9 +1,11 @@
+@import "variables";
 @import url("reset.scss");
 @import url("utils.scss");
 
 $base-button-color: #fffd01;
 $secondary-color: #282828;
 $background-color: #1a1a1a;
+@import url("dashboard.scss");
 
 body {
   background-color: $background-color;
